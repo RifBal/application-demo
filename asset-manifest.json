@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/application-demo/static/css/main.37440e65.css",
+    "main.js": "/application-demo/static/js/main.58b3cc57.js",
+    "static/js/453.f3fa6fac.chunk.js": "/application-demo/static/js/453.f3fa6fac.chunk.js",
+    "static/media/Logo_CelcomDigi.svg": "/application-demo/static/media/Logo_CelcomDigi.a057415f0ba2ca01ccfe935333a0bcb1.svg",
+    "index.html": "/application-demo/index.html",
+    "main.37440e65.css.map": "/application-demo/static/css/main.37440e65.css.map",
+    "main.58b3cc57.js.map": "/application-demo/static/js/main.58b3cc57.js.map",
+    "453.f3fa6fac.chunk.js.map": "/application-demo/static/js/453.f3fa6fac.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.37440e65.css",
+    "static/js/main.58b3cc57.js"
+  ]
+}
