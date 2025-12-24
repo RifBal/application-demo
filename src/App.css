@@ -1,12 +1,277 @@
-* {
-  box-sizing: border-box;
+* { box-sizing: border-box; }
+
+/* HOME LAYOUT */
+.home-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+/* GRID FOR MULTIPLE CARDS */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  margin-top: 12px;
+}
+
+/* FLOATING CARD */
+.floating-card {
+  border-radius: 18px;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+
+  animation: floaty 5s ease-in-out infinite;
+}
+
+/* stagger animation */
+.floating-card:nth-child(2) { animation-delay: 0.4s; }
+.floating-card:nth-child(3) { animation-delay: 0.8s; }
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* CARD IMAGE */
+.floating-card-img {
+  height: 160px;
+}
+
+.floating-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CARD CONTENT */
+.floating-card-content {
+  padding: 16px 18px 20px;
+  color: white;
+}
+
+.floating-card-content h2 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.floating-card-content p {
+  margin: 0 0 14px;
+  font-size: 14px;
+  opacity: 0.92;
+  line-height: 1.45;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.floating-card-img {
+  min-height: 220px;
+}
+
+.floating-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.floating-card-content {
+  padding: 18px 18px 20px;
+  color: #fff;
+}
+
+.floating-card-content h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.floating-card-content p {
+  margin: 0 0 14px;
+  opacity: 0.92;
+  line-height: 1.5;
+}
+
+/* BUTTONS */
+.floating-card-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.primary-btn,
+.ghost-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.primary-btn {
+  color: #fff;
+  background: linear-gradient(135deg, #2f80ed, #56ccf2);
+  box-shadow: 0 10px 22px rgba(47, 128, 237, 0.35);
+}
+
+.primary-btn:hover {
+  opacity: 0.95;
+}
+
+.ghost-btn {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.ghost-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* MOBILE */
+@media (max-width: 800px) {
+  .floating-card {
+    grid-template-columns: 1fr;
+  }
+
+  .floating-card-img {
+    min-height: 180px;
+  }
+}
+
+/* ===============================
+   BACKGROUND BLUR OVERLAY
+   =============================== */
+
+html, body {
+  height: 100%;
 }
 
 body {
+  position: relative; /* important for layering */
+}
+
+/* ✅ Blurred background layer that follows body background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+
+  /* uses the SAME background image as body */
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* tint + blur */
+  filter: blur(5px);
+  transform: scale(1.08);
+  opacity: 1;
+}
+
+.app {
+  position: relative;
+  z-index: 1;
+}
+
+header,
+.nav-menu,
+.content,
+.footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===============================
+    PAGE BACKGROUNDS (PNG)
+   =============================== */
+
+body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  background: linear-gradient(135deg, #e3f2ff, #f5f9ff);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  min-height: 100vh;
+
+  background-color: #000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  transition: background-image 0.25s ease-in-out;
+}
+
+body.bg-home {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("./assets/home-bg.png");
+}
+
+body.bg-postpaid {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("./assets/postpaid-bg.png");
+}
+
+body.bg-prepaid {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("./assets/prepaid-bg.png");
+}
+
+body.bg-contact {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("./assets/contact-bg.png");
+}
+
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  min-height: 100vh;
+
+  /* background base */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  transition: background-image 0.25s ease-in-out;
+}
+
+/* Per-page background images */
+body.bg-home {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("./assets/home-bg.png");
+}
+
+body.bg-postpaid {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("./assets/postpaid-bg.png");
+}
+
+body.bg-prepaid {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("./assets/prepaid-bg.png");
+}
+
+body.bg-contact {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("./assets/contact-bg.png");
 }
 
 .app {
@@ -30,19 +295,10 @@ body {
   align-items: center;
   gap: 10px;
 }
+.logo-img { height: 35px; width: auto; }
+.logo-text { font-weight: 700; font-size: 20px; color: white; }
 
-.logo-img {
-  height: 35px;
-  width: auto;
-}
-
-.logo-text {
-  font-weight: 700;
-  font-size: 20px;
-  color: white;
-}
-
-/* Nav bar */
+/* White sticky nav */
 .nav-menu {
   background: #ffffff;
   display: flex;
@@ -57,24 +313,18 @@ body {
 
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
-
 .nav-menu a {
   text-decoration: none;
   color: #333333;
   font-size: 14px;
   font-weight: 600;
-
   padding-bottom: 6px;
   border-bottom: 2px solid transparent;
 }
+.nav-menu a:hover { color: #0052cc; border-bottom-color: #0052cc; }
+.nav-menu a.active { color: #0052cc; border-bottom-color: #0052cc; }
 
-.nav-menu a:hover {
-  color: #0052cc;
-  border-bottom-color: #0052cc;
-}
-
-/* Page */
-
+/* Content container */
 .content {
   flex: 1;
   max-width: 980px;
@@ -82,66 +332,47 @@ body {
   padding: 24px 16px 60px;
 }
 
+/* Hero + cards are readable on top of background */
+.hero, .form-card {
+  backdrop-filter: blur(6px);
+}
+
+/* Hero */
 .hero {
   text-align: center;
   margin-bottom: 24px;
+  color: white;
 }
+.hero h1 { margin: 0 0 8px; font-size: 28px; }
+.hero p { margin: 0; opacity: 0.9; }
 
-.hero h1 {
-  margin: 0 0 8px;
-  font-size: 28px;
-  color: #123a6f;
-}
+/* Form */
+/* GLASS CARD (use on Postpaid / Prepaid / Contact) */
+.form-card {
+  width: 100%;
+  border-radius: 18px;
+  padding: 24px;
 
-.hero p {
-  margin: 0;
-  color: #56739a;
-}
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 
-/* Tabs */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
-.tabs {
-  display: inline-flex;
-  background: #ffffff;
-  border-radius: 999px;
-  padding: 4px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-  margin: 16px auto 24px;
-}
-
-.tab {
-  border: none;
-  background: transparent;
-  padding: 8px 18px;
-  border-radius: 999px;
-  font-size: 14px;
-  cursor: pointer;
-  color: #35557f;
-}
-
-.tab.active {
-  background: linear-gradient(135deg, #2f80ed, #56ccf2);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
   color: #fff;
 }
 
-/* Form */
-
-.form-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 10px 30px rgba(15, 35, 80, 0.08);
-  width: 100%;
-  min-height: 750px;
+/* Make text readable inside glass form */
+.form-card h2,
+.form-card h3,
+.form-card label {
+  color: #fff;
 }
 
-.form-card h2 {
-  margin-top: 0;
-  margin-bottom: 12px;
-  color: #123a6f;
+.form-card p {
+  color: rgba(255, 255, 255, 0.9);
 }
-
-/* Cards */
 
 .plan-grid {
   display: grid;
@@ -150,43 +381,51 @@ body {
   margin-bottom: 24px;
 }
 
+/* PLAN CARDS (GLASS like home) */
 .plan-card {
   border-radius: 14px;
-  border: 1px solid #dde7ff;
   padding: 14px;
   text-align: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  background: #f4f7ff;
+
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+  color: #fff;
 }
 
 .plan-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(47, 128, 237, 0.12);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
 }
 
 .plan-card.selected {
-  border-color: #2f80ed;
-  box-shadow: 0 8px 18px rgba(47, 128, 237, 0.25);
-  background: #e3f1ff;
+  border-color: rgba(86, 204, 242, 0.95);
+  box-shadow: 0 18px 40px rgba(47, 128, 237, 0.35);
+  background: rgba(255, 255, 255, 0.18);
 }
 
-.plan-card h4 {
-  margin: 0 0 4px;
-  color: #123a6f;
+/* text inside plan card */
+.plan-card h4,
+.plan-card .price,
+.plan-card .tagline {
+  color: #fff;
 }
 
 .price {
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 800;
   margin: 0 0 4px;
-  color: #1b5fd6;
 }
 
 .tagline {
   margin: 0 0 10px;
   font-size: 12px;
-  color: #6e86aa;
+  opacity: 0.9;
 }
 
 .small-btn {
@@ -199,66 +438,34 @@ body {
   color: #fff;
 }
 
-/* Form Content */
+.form-row { display: flex; flex-direction: column; margin-bottom: 12px; }
+.form-row.inline { display: flex; gap: 12px; }
+.form-row.inline > div { flex: 1; }
+.form-row label { font-size: 13px; margin-bottom: 4px; color: #35557f; }
 
-.form {
-  margin-top: 8px;
-}
-
-.form h3 {
-  margin-top: 18px;
-  margin-bottom: 10px;
-  color: #123a6f;
-}
-
-.form-row {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 12px;
-}
-
-.form-row label {
-  font-size: 13px;
-  margin-bottom: 4px;
-  color: #35557f;
-}
-
-.form-row input,
-.form-row select,
-.form-row textarea {
-  border-radius: 8px;
-  border: 1px solid #c7d8ff;
-  padding: 8px 10px;
+.form-row input {
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 10px 12px;
   font-size: 13px;
   outline: none;
-  background: #f8fbff;
+
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
 }
 
-.form-row input:focus,
-.form-row select:focus,
-.form-row textarea:focus {
-  border-color: #2f80ed;
-  box-shadow: 0 0 0 1px rgba(47, 128, 237, 0.25);
-  background: #ffffff;
+.form-row input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
 
-.form-row.inline {
-  display: flex;
-  gap: 12px;
+.form-row input:focus {
+  border-color: rgba(86, 204, 242, 0.9);
+  box-shadow: 0 0 0 2px rgba(86, 204, 242, 0.25);
+  background: rgba(255, 255, 255, 0.16);
 }
 
-.form-row.inline > div {
-  flex: 1;
-}
-
-.checkbox-row {
-  font-size: 12px;
-  color: #35557f;
-}
-
-.checkbox-row input {
-  margin-right: 6px;
-}
+.checkbox-row { font-size: 12px; color: #35557f; }
+.checkbox-row input { margin-right: 6px; }
 
 .submit-btn {
   margin-top: 4px;
@@ -270,16 +477,11 @@ body {
   font-size: 14px;
   cursor: pointer;
 }
-
-.submit-btn:hover {
-  opacity: 0.95;
-  box-shadow: 0 6px 16px rgba(47, 128, 237, 0.35);
-}
+.submit-btn:hover { opacity: 0.95; box-shadow: 0 6px 16px rgba(47, 128, 237, 0.35); }
 
 /* Footer */
-
 .footer {
-  background: #0b1c3a;
+  background: rgba(11, 28, 58, 0.92);
   color: #e0ecff;
   padding: 20px 24px 10px;
   display: flex;
@@ -288,16 +490,5 @@ body {
   justify-content: center;
   font-size: 13px;
 }
-
-.footer h4 {
-  margin: 0 0 4px;
-  color: #ffffff;
-}
-
-.footer-bottom {
-  flex-basis: 100%;
-  text-align: center;
-  margin-top: 10px;
-  font-size: 12px;
-  color: #9fb4e6;
-}
+.footer h4 { margin: 0 0 4px; color: #ffffff; }
+.footer-bottom { flex-basis: 100%; text-align: center; margin-top: 10px; font-size: 12px; color: #9fb4e6; }
