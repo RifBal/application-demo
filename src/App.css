@@ -79,7 +79,7 @@ body::before {
    =============================== */
 .top-header{
   background: linear-gradient(90deg, var(--cd-blue), var(--cd-blue-2));
-  padding: 12px 18px;
+  padding: 15px 18px;
   display:flex;
   justify-content: left;
   border-bottom: 1px solid rgba(0,0,0,0.08);
@@ -92,8 +92,9 @@ body::before {
 }
 
 .logo-img{
-  height: 34px;
+  height: 30px;
   width:auto;
+  margin-left: 10px;
   filter: drop-shadow(0 8px 18px rgba(0,0,0,0.25));
 }
 
@@ -932,5 +933,333 @@ body::before {
   }
   .sum-total-price{
     font-size: 38px;
+  }
+}
+
+/* ===============================
+   RESPONSIVE FULL-WIDTH BANNER
+   =============================== */
+.page-banner{
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Aspect-ratio controls height automatically */
+.page-banner-img{
+  width: 100vw;
+  aspect-ratio: 1920 / 450;   /* 👈 controls banner height */
+  object-fit: cover;
+  display: block;
+
+  /* Break out of centered layout */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+
+/* ===============================
+   HOME UPGRADE: Split Cards
+   =============================== */
+
+.hero-upgraded{
+  padding: 18px 16px 16px;
+}
+
+.hero-mini{
+  margin-top: 12px;
+  display:flex;
+  gap: 10px;
+  justify-content:center;
+  flex-wrap: wrap;
+}
+
+.hero-chip{
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 12px;
+  color: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+.split-card-grid{
+  display:flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Big “landing page” card */
+.split-card{
+  display:grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 0;
+  border-radius: 18px;
+  overflow:hidden;
+
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+}
+
+/* Swap order for Need Help card */
+.split-card.reverse{
+  grid-template-columns: 1.15fr 1fr;
+}
+.split-card.reverse .split-card-media{
+  order: 2;
+}
+.split-card.reverse .split-card-body{
+  order: 1;
+}
+
+/* Image area */
+.split-card-media{
+  position: relative;
+  min-height: 220px;
+}
+.split-card-media img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+}
+
+/* Badge */
+.split-card-badge{
+  position:absolute;
+  top: 14px;
+  left: 14px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 1000;
+  font-size: 12px;
+  color: #061a5e;
+  background: #ffe600;
+  box-shadow: 0 10px 18px rgba(0,0,0,0.25);
+}
+
+/* Content area */
+.split-card-body{
+  padding: 18px 18px 16px;
+  color: #fff;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.split-card-body h2{
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 1000;
+  letter-spacing: -0.4px;
+}
+
+.split-subtitle{
+  margin: 0 0 10px;
+  font-weight: 900;
+  font-size: 13px;
+  color: rgba(255,255,255,0.88);
+}
+
+.split-text{
+  margin: 0 0 12px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.92);
+}
+
+.split-list{
+  margin: 0 0 14px;
+  padding-left: 18px;
+  color: rgba(255,255,255,0.90);
+  line-height: 1.55;
+  font-weight: 800;
+  font-size: 13px;
+}
+.split-list li{
+  margin: 4px 0;
+}
+
+/* Actions */
+.split-actions{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.split-note{
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.72);
+}
+
+/* ===============================
+   Responsive
+   =============================== */
+@media (max-width: 900px){
+  .split-card,
+  .split-card.reverse{
+    grid-template-columns: 1fr;
+  }
+
+  .split-card.reverse .split-card-media,
+  .split-card.reverse .split-card-body{
+    order: unset;
+  }
+
+  .split-card-media{
+    min-height: 190px;
+  }
+}
+
+@media (max-width: 600px){
+  .split-card-body{
+    padding: 14px;
+  }
+  .split-card-body h2{
+    font-size: 20px;
+  }
+  .split-list{
+    font-size: 12px;
+  }
+}
+
+/* ===============================
+   APPLY CTA
+   =============================== */
+.apply-cta{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.apply-btn{
+  display:inline-block;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-weight: 1000;
+  font-size: 16px;
+  text-decoration:none;
+  color:#061a5e;
+  background: #ffe600;
+  box-shadow: 0 18px 36px rgba(0,0,0,0.25);
+}
+
+.apply-btn:hover{
+  opacity: .95;
+}
+
+.apply-note{
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.75);
+}
+
+/* Apply page */
+.apply-page h2{
+  margin-bottom: 6px;
+}
+
+.apply-subtitle{
+  margin-bottom: 14px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.88);
+}
+
+/* ===============================
+   PAGE BANNER (Responsive)
+   =============================== */
+.page-banner{
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.page-banner img{
+  width: 100%;
+  height: clamp(140px, 22vw, 260px); /* auto resize */
+  object-fit: cover;               /* fill without stretching */
+  display: block;
+}
+
+/* ===============================
+   APPLY PAGE – SOLID FIBRE THEME
+   =============================== */
+
+.apply-card{
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 22px 22px 20px;
+  border-radius: 18px;
+
+  /* Same tone as fibre cards */
+  background: #061a5e;
+  color: #ffffff;
+
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+}
+
+/* Headings */
+.apply-card h2{
+  margin: 0 0 8px;
+  font-size: 26px;
+  font-weight: 1000;
+}
+
+.apply-card p{
+  margin: 0 0 16px;
+  opacity: 0.9;
+  font-weight: 700;
+}
+
+/* Inputs */
+.apply-card input[type="text"],
+.apply-card input[type="email"],
+.apply-card input[type="tel"],
+.apply-card input[type="file"],
+.apply-card textarea{
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+}
+
+/* File input fix */
+.apply-card input[type="file"]{
+  padding: 8px;
+}
+
+/* Buttons */
+.apply-card .submit-btn{
+  background: linear-gradient(135deg, #2f80ed, #56ccf2);
+}
+
+.apply-card .ghost-btn{
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.22);
+}
+
+/* Fine print */
+.apply-card .form-note{
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+/* Mobile */
+@media (max-width: 600px){
+  .apply-card{
+    padding: 18px 16px;
+  }
+
+  .apply-card h2{
+    font-size: 22px;
   }
 }
