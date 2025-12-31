@@ -50,7 +50,7 @@ function AppShell() {
       {/* Routes */}
       <main className="content">
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/fibre" element={<FibrePage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
