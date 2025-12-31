@@ -1,22 +1,23 @@
 // src/App.js
 import React, { useEffect, useMemo, useState } from "react";
-import { BrowserRouter, Routes, Route, NavLink, useLocation } from "react-router-dom";
+import { HashRouter, Routes, Route, NavLink, useLocation } from "react-router-dom";
 import "./App.css";
 import logo from "./Logo_CelcomDigi.svg";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <AppShell />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
 function AppShell() {
   const location = useLocation();
 
+  // Background class switching (safe for HashRouter)
   useEffect(() => {
-    const path = location.pathname;
+    const path = location.pathname || "/";
 
     const classes = ["bg-home", "bg-fibre", "bg-contact"];
     document.body.classList.remove(...classes);
@@ -26,6 +27,13 @@ function AppShell() {
     else if (path.startsWith("/contact")) document.body.classList.add("bg-home");
     else document.body.classList.add("bg-home");
   }, [location.pathname]);
+
+  // Optional: force hash root if empty
+  useEffect(() => {
+    if (!window.location.hash) {
+      window.location.hash = "#/";
+    }
+  }, []);
 
   return (
     <div className="app">
@@ -136,7 +144,7 @@ function HomePage() {
    FIBRE PAGE
    =============================== */
 function FibrePage() {
-  // Campaign-like plan set (you can change prices later)
+  // Campaign-like plan set (edit the prices later)
   const planOptions = useMemo(
     () => [
       { speed: 100, label: "100Mbps", price: "RM89", blurb: "Best for basic browsing" },
@@ -262,7 +270,7 @@ function FibrePage() {
       <div className="fibre-speed">
         <p className="fibre-speed-label">Choose speed</p>
 
-        <div className="plan-scroll" role="list">
+        <div className="plan-scroll" role="list" aria-label="Fibre plan options">
           {planOptions.map((p) => (
             <button
               key={p.speed}
@@ -336,14 +344,28 @@ function FibrePage() {
           </div>
           <div>
             <label>State</label>
-            <input type="text" name="state" value={coverage.state} onChange={handleChange} required placeholder="Selangor" />
+            <input
+              type="text"
+              name="state"
+              value={coverage.state}
+              onChange={handleChange}
+              required
+              placeholder="Selangor"
+            />
           </div>
         </div>
 
         <div className="form-row inline">
           <div>
             <label>Postcode</label>
-            <input type="text" name="postcode" value={coverage.postcode} onChange={handleChange} required placeholder="43000" />
+            <input
+              type="text"
+              name="postcode"
+              value={coverage.postcode}
+              onChange={handleChange}
+              required
+              placeholder="43000"
+            />
           </div>
           <div>
             <label>Selected Speed</label>
@@ -392,7 +414,8 @@ function FibrePage() {
 
         <div className="form-row checkbox-row">
           <label>
-            <input type="checkbox" name="consent" checked={coverage.consent} onChange={handleChange} /> I agree to be contacted about Fibre services.
+            <input type="checkbox" name="consent" checked={coverage.consent} onChange={handleChange} /> I agree to be
+            contacted about Fibre services.
           </label>
         </div>
 
