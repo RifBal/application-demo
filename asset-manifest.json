@@ -1,20 +1,17 @@
 {
   "files": {
-    "main.css": "/application-demo/static/css/main.b4a4002b.css",
-    "main.js": "/application-demo/static/js/main.b9c33903.js",
+    "main.css": "/application-demo/static/css/main.f7b751dd.css",
+    "main.js": "/application-demo/static/js/main.a04fcd3b.js",
     "static/js/453.1e13ea0d.chunk.js": "/application-demo/static/js/453.1e13ea0d.chunk.js",
-    "static/media/contact-bg.png": "/application-demo/static/media/contact-bg.6ac9db245050a0b5b8d7.png",
     "static/media/home-bg.png": "/application-demo/static/media/home-bg.6ac9db245050a0b5b8d7.png",
-    "static/media/postpaid-bg.png": "/application-demo/static/media/postpaid-bg.6ac9db245050a0b5b8d7.png",
-    "static/media/prepaid-bg.png": "/application-demo/static/media/prepaid-bg.6ac9db245050a0b5b8d7.png",
     "static/media/Logo_CelcomDigi.svg": "/application-demo/static/media/Logo_CelcomDigi.a057415f0ba2ca01ccfe935333a0bcb1.svg",
     "index.html": "/application-demo/index.html",
-    "main.b4a4002b.css.map": "/application-demo/static/css/main.b4a4002b.css.map",
-    "main.b9c33903.js.map": "/application-demo/static/js/main.b9c33903.js.map",
+    "main.f7b751dd.css.map": "/application-demo/static/css/main.f7b751dd.css.map",
+    "main.a04fcd3b.js.map": "/application-demo/static/js/main.a04fcd3b.js.map",
     "453.1e13ea0d.chunk.js.map": "/application-demo/static/js/453.1e13ea0d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b4a4002b.css",
-    "static/js/main.b9c33903.js"
+    "static/css/main.f7b751dd.css",
+    "static/js/main.a04fcd3b.js"
   ]
 }
