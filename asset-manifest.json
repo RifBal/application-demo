@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.309e490c.css",
-    "main.js": "/static/js/main.3a5f9a83.js",
-    "static/js/453.1e13ea0d.chunk.js": "/static/js/453.1e13ea0d.chunk.js",
-    "static/media/contact-bg.png": "/static/media/contact-bg.6ac9db245050a0b5b8d7.png",
-    "static/media/home-bg.png": "/static/media/home-bg.6ac9db245050a0b5b8d7.png",
-    "static/media/postpaid-bg.png": "/static/media/postpaid-bg.6ac9db245050a0b5b8d7.png",
-    "static/media/prepaid-bg.png": "/static/media/prepaid-bg.6ac9db245050a0b5b8d7.png",
-    "static/media/Logo_CelcomDigi.svg": "/static/media/Logo_CelcomDigi.a057415f0ba2ca01ccfe935333a0bcb1.svg",
-    "index.html": "/index.html",
-    "main.309e490c.css.map": "/static/css/main.309e490c.css.map",
-    "main.3a5f9a83.js.map": "/static/js/main.3a5f9a83.js.map",
-    "453.1e13ea0d.chunk.js.map": "/static/js/453.1e13ea0d.chunk.js.map"
+    "main.css": "/home/static/css/main.f90aa097.css",
+    "main.js": "/home/static/js/main.d8bb5a75.js",
+    "static/js/453.1e13ea0d.chunk.js": "/home/static/js/453.1e13ea0d.chunk.js",
+    "static/media/contact-bg.png": "/home/static/media/contact-bg.6ac9db245050a0b5b8d7.png",
+    "static/media/home-bg.png": "/home/static/media/home-bg.6ac9db245050a0b5b8d7.png",
+    "static/media/postpaid-bg.png": "/home/static/media/postpaid-bg.6ac9db245050a0b5b8d7.png",
+    "static/media/prepaid-bg.png": "/home/static/media/prepaid-bg.6ac9db245050a0b5b8d7.png",
+    "static/media/Logo_CelcomDigi.svg": "/home/static/media/Logo_CelcomDigi.a057415f0ba2ca01ccfe935333a0bcb1.svg",
+    "index.html": "/home/index.html",
+    "main.f90aa097.css.map": "/home/static/css/main.f90aa097.css.map",
+    "main.d8bb5a75.js.map": "/home/static/js/main.d8bb5a75.js.map",
+    "453.1e13ea0d.chunk.js.map": "/home/static/js/453.1e13ea0d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.309e490c.css",
-    "static/js/main.3a5f9a83.js"
+    "static/css/main.f90aa097.css",
+    "static/js/main.d8bb5a75.js"
   ]
 }
