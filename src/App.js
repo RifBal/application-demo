@@ -1,39 +1,30 @@
-// src/App.js
 import React, { useEffect, useMemo, useState } from "react";
-import { HashRouter, Routes, Route, NavLink, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, NavLink, useLocation } from "react-router-dom";
 import "./App.css";
 import logo from "./Logo_CelcomDigi.svg";
 
 export default function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <AppShell />
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
 function AppShell() {
   const location = useLocation();
 
-  // Background class switching (safe for HashRouter)
   useEffect(() => {
-    const path = location.pathname || "/";
-
+    const path = location.pathname;
     const classes = ["bg-home", "bg-fibre", "bg-contact"];
     document.body.classList.remove(...classes);
 
+    // Backgrounds (you can keep all bg-home if you want)
     if (path === "/") document.body.classList.add("bg-home");
     else if (path.startsWith("/fibre")) document.body.classList.add("bg-home");
     else if (path.startsWith("/contact")) document.body.classList.add("bg-home");
     else document.body.classList.add("bg-home");
   }, [location.pathname]);
-
-  // Optional: force hash root if empty
-  useEffect(() => {
-    if (!window.location.hash) {
-      window.location.hash = "#/";
-    }
-  }, []);
 
   return (
     <div className="app">
@@ -61,6 +52,8 @@ function AppShell() {
           <Route path="/" element={<HomePage />} />
           <Route path="/fibre" element={<FibrePage />} />
           <Route path="/contact" element={<ContactPage />} />
+          {/* fallback */}
+          <Route path="*" element={<HomePage />} />
         </Routes>
       </main>
 
@@ -86,14 +79,14 @@ function AppShell() {
 }
 
 /* ===============================
-   HOME PAGE (only Fibre + Contact)
+   HOME PAGE
    =============================== */
 function HomePage() {
   const cards = useMemo(
     () => [
       {
         title: "Fibre Plans",
-        text: "Check coverage, compare speeds, and submit interest for Fibre installation.",
+        text: "Pick your speed, check coverage, and submit interest for Fibre installation.",
         img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=80",
         link: "/fibre",
         btn: "View Fibre",
@@ -141,300 +134,126 @@ function HomePage() {
 }
 
 /* ===============================
-   FIBRE PAGE
+   FIBRE PAGE (ONE CARD THAT UPDATES)
    =============================== */
 function FibrePage() {
-  // Campaign-like plan set (edit the prices later)
-  const planOptions = useMemo(
-    () => [
-      { speed: 100, label: "100Mbps", price: "RM89", blurb: "Best for basic browsing" },
-      { speed: 300, label: "300Mbps", price: "RM109", blurb: "Best for WFH + streaming", recommended: true },
-      { speed: 500, label: "500Mbps", price: "RM129", blurb: "Best for family usage" },
-      { speed: 1000, label: "1Gbps", price: "RM189", blurb: "Best for heavy streaming" },
-      { speed: 2000, label: "2Gbps", price: "RM249", blurb: "Best for power users" },
-    ],
-    []
-  );
+  const speeds = [100, 300, 500, 1000, 2000];
 
-  const promoBadges = useMemo(
-    () => ["Free installation (promo)", "Fast appointment", "24/7 support (demo)", "Mesh WiFi option"],
-    []
-  );
+  const [speed, setSpeed] = useState(500);
+  const [hasPostpaid, setHasPostpaid] = useState(false);
 
-  const [step, setStep] = useState(1);
-
-  const [coverage, setCoverage] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    address1: "",
-    address2: "",
-    city: "",
-    state: "",
-    postcode: "",
-    speed: 300,
-    consent: false,
-  });
-
-  const [result, setResult] = useState(null); // { ok: boolean, msg: string }
-
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setCoverage((p) => ({ ...p, [name]: type === "checkbox" ? checked : value }));
+  // DEMO pricing (adjust to match real CelcomDigi later)
+  const basePriceMap = {
+    100: 129,
+    300: 149,
+    500: 159,
+    1000: 189,
+    2000: 249,
   };
 
-  const selectSpeed = (s) => setCoverage((p) => ({ ...p, speed: s }));
+  const rebate = hasPostpaid ? 10 : 0; // demo rebate
+  const base = basePriceMap[speed] ?? 159;
+  const monthly = Math.max(base - rebate, 0);
 
-  const validateStep1 = () => {
-    if (!coverage.address1 || !coverage.city || !coverage.state || !coverage.postcode) {
-      setResult({ ok: false, msg: "Please fill Address Line 1, City, State and Postcode." });
-      return false;
-    }
-    setResult(null);
-    return true;
-  };
-
-  const validateStep2 = () => {
-    if (!coverage.name || !coverage.phone || !coverage.email) {
-      setResult({ ok: false, msg: "Please fill Name, Phone, and Email." });
-      return false;
-    }
-    if (!coverage.consent) {
-      setResult({ ok: false, msg: "Please tick consent to proceed." });
-      return false;
-    }
-    setResult(null);
-    return true;
-  };
-
-  const handleCheckCoverage = (e) => {
-    e.preventDefault();
-    if (!validateStep1()) return;
-
-    // Demo coverage logic (no API)
-    const pc = String(coverage.postcode || "").trim();
-    const lastDigit = pc ? parseInt(pc[pc.length - 1], 10) : 0;
-    const ok = Number.isFinite(lastDigit) ? lastDigit % 2 === 0 : true;
-
-    if (ok) {
-      setResult({
-        ok: true,
-        msg: `Good news! Fibre is likely available for your area (demo). Recommended: ${formatSpeed(coverage.speed)}.`,
-      });
-      setStep(2);
-    } else {
-      setResult({
-        ok: false,
-        msg: "Coverage is uncertain for this area (demo). You can still submit interest and we will contact you.",
-      });
-      setStep(2);
-    }
-  };
-
-  const handleSubmitInterest = (e) => {
-    e.preventDefault();
-    if (!validateStep2()) return;
-
-    alert(
-      `Fibre interest submitted (demo).\n\nSelected: ${formatSpeed(coverage.speed)}\nName: ${coverage.name}\nPhone: ${coverage.phone}\nEmail: ${coverage.email}`
-    );
-
-    setCoverage((p) => ({ ...p, name: "", phone: "", email: "", consent: false }));
-  };
+  const speedIndex = speeds.indexOf(speed);
 
   return (
-    <section className="form-card">
-      <div className="fibre-header">
-        <div>
-          <h2 className="fibre-title">Fibre Plans</h2>
-          <p className="fibre-subtitle">
-            Check coverage, pick your speed, then submit interest for installation. (Demo page)
-          </p>
+    <section className="fibre-wrap">
+      {/* TOP PROMO CARD */}
+      <div className="fibre-hero-card">
+        <div className="fibre-hero-left">
+          <h2>Tambah fiber ke pelan pascabayar anda untuk lebih banyak rebat</h2>
+          <p>Hitung pelan gabungan fiber dan postpaid anda di sini.</p>
         </div>
 
-        <div className="fibre-badges">
-          {promoBadges.map((b) => (
-            <span className="fibre-badge" key={b}>
-              {b}
-            </span>
-          ))}
-        </div>
-      </div>
+        <div className="fibre-hero-right">
+          <div className="calc-card">
+            <div className="calc-title">Pilih kelajuan Internet yang anda inginkan (Mbps)</div>
 
-      <div className="fibre-steps">
-        <StepPill active={step === 1} label="1) Check Coverage" />
-        <StepPill active={step === 2} label="2) Submit Interest" />
-      </div>
+            <div className="slider-wrap">
+              <input
+                className="cd-slider"
+                type="range"
+                min={0}
+                max={speeds.length - 1}
+                step={1}
+                value={speedIndex}
+                onChange={(e) => setSpeed(speeds[Number(e.target.value)])}
+              />
 
-      {/* Campaign-like scrollable plan cards */}
-      <div className="fibre-speed">
-        <p className="fibre-speed-label">Choose speed</p>
+              <div className="slider-ticks">
+  {speeds.map((s) => (
+    <span key={s} className={`tick ${s === speed ? "active" : ""}`}>
+      {s}
+    </span>
+  ))}
+</div>
 
-        <div className="plan-scroll" role="list" aria-label="Fibre plan options">
-          {planOptions.map((p) => (
-            <button
-              key={p.speed}
-              type="button"
-              className={`plan-tile ${coverage.speed === p.speed ? "active" : ""} ${
-                p.recommended ? "recommended" : ""
-              }`}
-              onClick={() => selectSpeed(p.speed)}
-            >
-              {p.recommended && <div className="plan-ribbon">Recommended</div>}
+              <div className="slider-selected">
+                {speed >= 1000 ? `${speed / 1000}Gbps` : `${speed}Mbps`}
+              </div>
+            </div>
 
-              <div className="plan-speed">{p.label}</div>
+            <div className="calc-divider" />
 
-              <div className="plan-price">
-                <span className="plan-price-num">{p.price}</span>
-                <span className="plan-price-sub">/month</span>
+            <div className="toggle-row-cd">
+              <div className="toggle-label">
+                Adakah anda mempunyai pelan pascabayar RM60 ke atas dengan kami?
               </div>
 
-              <div className="plan-desc">{p.blurb}</div>
+              <div className="toggle-box">
+                <span className={`toggle-pill ${!hasPostpaid ? "on" : ""}`}>Tidak</span>
 
-              <ul className="plan-feats">
-                <li>Unlimited data</li>
-                <li>WiFi 6 ready (demo)</li>
-                <li>Free install promo</li>
-              </ul>
+                <button
+                  type="button"
+                  className={`cd-switch ${hasPostpaid ? "on" : ""}`}
+                  onClick={() => setHasPostpaid((v) => !v)}
+                  aria-label="toggle postpaid"
+                >
+                  <span className="cd-knob" />
+                </button>
 
-              <div className="plan-cta">{coverage.speed === p.speed ? "Selected" : "Select plan"}</div>
-            </button>
-          ))}
+                <span className={`toggle-pill ${hasPostpaid ? "on" : ""}`}>Ya</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Result banner */}
-      {result && (
-        <div className={`fibre-alert ${result.ok ? "ok" : "warn"}`} role="status">
-          <b>{result.ok ? "Coverage Result:" : "Notice:"}</b> {result.msg}
-        </div>
-      )}
+      {/* SUMMARY CARD */}
+      <div className="summary-card">
+        <div className="summary-head">Ringkasan harga</div>
 
-      {/* Step 1: Coverage */}
-      <form className="form" onSubmit={handleCheckCoverage}>
-        <h3>Service Address</h3>
-
-        <div className="form-row">
-          <label>Address Line 1</label>
-          <input
-            type="text"
-            name="address1"
-            value={coverage.address1}
-            onChange={handleChange}
-            placeholder="House/Unit No, Street"
-            required
-          />
-        </div>
-
-        <div className="form-row">
-          <label>Address Line 2 (Optional)</label>
-          <input
-            type="text"
-            name="address2"
-            value={coverage.address2}
-            onChange={handleChange}
-            placeholder="Building / Apartment / Floor"
-          />
-        </div>
-
-        <div className="form-row inline">
-          <div>
-            <label>City</label>
-            <input type="text" name="city" value={coverage.city} onChange={handleChange} required />
+        <div className="summary-body">
+          <div className="sum-row">
+            <span>Fibre {speed >= 1000 ? `${speed / 1000}Gbps` : `${speed}Mbps`}</span>
+            <span className="sum-val">RM{base}</span>
           </div>
-          <div>
-            <label>State</label>
-            <input
-              type="text"
-              name="state"
-              value={coverage.state}
-              onChange={handleChange}
-              required
-              placeholder="Selangor"
-            />
+
+          <div className="sum-row">
+            <span>Rebat bulanan</span>
+            <span className="sum-val">-RM{rebate}</span>
+          </div>
+
+          <div className="sum-line" />
+
+          <div className="sum-total">
+            <div className="sum-total-label">Kos bulanan <span>(selama 24 bulan)</span></div>
+            <div className="sum-total-price">RM{monthly}</div>
           </div>
         </div>
 
-        <div className="form-row inline">
-          <div>
-            <label>Postcode</label>
-            <input
-              type="text"
-              name="postcode"
-              value={coverage.postcode}
-              onChange={handleChange}
-              required
-              placeholder="43000"
-            />
-          </div>
-          <div>
-            <label>Selected Speed</label>
-            <input type="text" value={formatSpeed(coverage.speed)} readOnly />
-          </div>
+        <div className="summary-offer">
+          <div className="offer-title">Tawaran Semasa</div>
+          <div className="offer-sub">Percuma Router WiFi 6 + Mesh Node</div>
         </div>
-
-        <div className="fibre-actions">
-          <button type="submit" className="submit-btn">
-            Check Coverage
-          </button>
-
-          <button
-            type="button"
-            className="ghost-btn"
-            onClick={() => {
-              if (!validateStep1()) return;
-              setResult({ ok: true, msg: "You can submit interest now (demo)." });
-              setStep(2);
-            }}
-          >
-            Skip &amp; Submit Interest
-          </button>
-        </div>
-      </form>
-
-      {/* Step 2: Interest */}
-      <form className="form" onSubmit={handleSubmitInterest}>
-        <h3>Contact Details</h3>
-
-        <div className="form-row">
-          <label>Full Name</label>
-          <input type="text" name="name" value={coverage.name} onChange={handleChange} required />
-        </div>
-
-        <div className="form-row inline">
-          <div>
-            <label>Phone Number</label>
-            <input type="tel" name="phone" value={coverage.phone} onChange={handleChange} required />
-          </div>
-          <div>
-            <label>Email</label>
-            <input type="email" name="email" value={coverage.email} onChange={handleChange} required />
-          </div>
-        </div>
-
-        <div className="form-row checkbox-row">
-          <label>
-            <input type="checkbox" name="consent" checked={coverage.consent} onChange={handleChange} /> I agree to be
-            contacted about Fibre services.
-          </label>
-        </div>
-
-        <div className="fibre-actions">
-          <button type="submit" className="submit-btn">
-            Submit Interest
-          </button>
-
-          <button type="button" className="ghost-btn" onClick={() => setStep(1)}>
-            Back to Coverage
-          </button>
-        </div>
-
-        <div className="fibre-fineprint">*This is a UI demo. Replace alerts with real API submission later.</div>
-      </form>
+      </div>
     </section>
   );
 }
 
+
+/* Small helpers */
 function StepPill({ active, label }) {
   return <span className={`step-pill ${active ? "active" : ""}`}>{label}</span>;
 }
