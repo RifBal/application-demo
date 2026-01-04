@@ -1,21 +1,26 @@
 {
   "files": {
-    "main.css": "/application-demo/static/css/main.1776f4b7.css",
-    "main.js": "/application-demo/static/js/main.168dd28a.js",
+    "main.css": "/application-demo/static/css/main.b9068488.css",
+    "main.js": "/application-demo/static/js/main.2a6596ba.js",
     "static/js/453.1e13ea0d.chunk.js": "/application-demo/static/js/453.1e13ea0d.chunk.js",
-    "static/media/banner-1.png": "/application-demo/static/media/banner-1.94d2527f3b9673898091.png",
-    "static/media/banner-2.png": "/application-demo/static/media/banner-2.e0b0fe2a3ac2909f5dc9.png",
-    "static/media/banner-3.png": "/application-demo/static/media/banner-3.40007761e2fccb171b0d.png",
-    "static/media/home-bg.png": "/application-demo/static/media/home-bg.6ac9db245050a0b5b8d7.png",
-    "static/media/banner.png": "/application-demo/static/media/banner.165f3c9a9ac934d7f15b.png",
+    "static/media/banner-2.png": "/application-demo/static/media/banner-2.72cde2bd756fe1f06d8b.png",
+    "static/media/banner-3.png": "/application-demo/static/media/banner-3.40983b2af4e08d7ef4c0.png",
+    "static/media/banner-1.png": "/application-demo/static/media/banner-1.14a02a678c5201a86be8.png",
+    "static/media/promo1.png": "/application-demo/static/media/promo1.eab04fc17f46ef8443c4.png",
+    "static/media/promo4.png": "/application-demo/static/media/promo4.7481050167f353a7ae2f.png",
+    "static/media/promo2.png": "/application-demo/static/media/promo2.42abdf8bf30f27440647.png",
+    "static/media/promo3.png": "/application-demo/static/media/promo3.d22db45cdebc5760724a.png",
+    "static/media/2.svg": "/application-demo/static/media/2.f8f571d68d70a84040489a3646c9fef4.svg",
+    "static/media/4.svg": "/application-demo/static/media/4.466bb2a0833d6abdb27db3f887a0c24b.svg",
     "static/media/Logo_CelcomDigi.svg": "/application-demo/static/media/Logo_CelcomDigi.a057415f0ba2ca01ccfe935333a0bcb1.svg",
+    "static/media/1.svg": "/application-demo/static/media/1.5bfb7a421dc2cac477446ddbc8841b97.svg",
     "index.html": "/application-demo/index.html",
-    "main.1776f4b7.css.map": "/application-demo/static/css/main.1776f4b7.css.map",
-    "main.168dd28a.js.map": "/application-demo/static/js/main.168dd28a.js.map",
+    "main.b9068488.css.map": "/application-demo/static/css/main.b9068488.css.map",
+    "main.2a6596ba.js.map": "/application-demo/static/js/main.2a6596ba.js.map",
     "453.1e13ea0d.chunk.js.map": "/application-demo/static/js/453.1e13ea0d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1776f4b7.css",
-    "static/js/main.168dd28a.js"
+    "static/css/main.b9068488.css",
+    "static/js/main.2a6596ba.js"
   ]
 }
