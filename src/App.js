@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { HashRouter, Routes, Route, NavLink, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, NavLink, useLocation } from "react-router-dom";
 import "./App.css";
 
 import logo from "./Logo_CelcomDigi.svg";
@@ -19,9 +19,9 @@ import promo4 from "./assets/promo/promo4.webp";
 
 export default function App() {
   return (
-    <HashRouter basename="/application-demo">
+    <BrowserRouter basename="/application-demo">
       <AppShell />
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
