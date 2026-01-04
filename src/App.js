@@ -19,7 +19,7 @@ import promo4 from "./assets/promo/promo4.png";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/application-demo">
       <AppShell />
     </BrowserRouter>
   );
