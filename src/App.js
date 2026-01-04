@@ -4,18 +4,18 @@ import { BrowserRouter, Routes, Route, NavLink, useLocation } from "react-router
 import "./App.css";
 
 import logo from "./Logo_CelcomDigi.svg";
-import bannerHome from "./assets/banners/banner-1.png";
-import bannerFibre from "./assets/banners/banner-3.png";
-import bannerContact from "./assets/banners/banner-2.png";
+import bannerHome from "./assets/banners/banner-1.webp";
+import bannerFibre from "./assets/banners/banner-3.webp";
+import bannerContact from "./assets/banners/banner-2.webp";
 
 import wifiIcon from "./assets/icons/1.svg";
 import calendarIcon from "./assets/icons/4.svg";
 import moneyIcon from "./assets/icons/2.svg";
 
-import promo1 from "./assets/promo/promo1.png";
-import promo2 from "./assets/promo/promo2.png";
-import promo3 from "./assets/promo/promo3.png";
-import promo4 from "./assets/promo/promo4.png";
+import promo1 from "./assets/promo/promo1.webp";
+import promo2 from "./assets/promo/promo2.webp";
+import promo3 from "./assets/promo/promo3.webp";
+import promo4 from "./assets/promo/promo4.webp";
 
 export default function App() {
   return (
