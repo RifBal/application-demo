@@ -30,7 +30,6 @@ function AppShell() {
   const bannerFibre = `${process.env.PUBLIC_URL}/banners/banner-fibre.webp`;
   const bannerContact = `${process.env.PUBLIC_URL}/banners/banner-contact.webp`;
 
-
   const [lang, setLang] = useState(() => localStorage.getItem("lang") || "my");
   useEffect(() => localStorage.setItem("lang", lang), [lang]);
 
@@ -38,261 +37,259 @@ function AppShell() {
     my: {
       // NAV
       nav_home: "Utama",
-      nav_fibre: "Fibre",
+      nav_fibre: "Pelan Fibre",
       nav_contact: "Hubungi",
 
       // FOOTER
       footer_support_title: "Khidmat Pelanggan",
-      footer_support_desc: "Bil & teknikal: 1800-xx-xxxx",
+      footer_support_desc: "Sokongan & teknikal: 1800-xx-xxxx",
       footer_sales_title: "Jualan & WhatsApp",
       footer_sales_desc1: "Jualan: +60 11-xxxx xxxx",
       footer_sales_desc2: "WhatsApp: wa.me/60xxx",
 
       // HOME
-      home_title: "Pascabayar & Fibre Jadi Lebih Mudah",
-      home_desc:
-        "Nikmati internet Fibre pantas dan stabil untuk penstriman, permainan dalam talian dan pelayaran web tanpa gangguan. Banding pelan yang sesuai dan teruskan ke kalkulator Fibre.",
-      home_btn_fibre: "Terokai Pelan Fibre",
-      home_btn_more: "Maklumat Lanjut",
+      home_title: "Internet Fibre Pantas & Stabil untuk Rumah Anda",
+      home_desc: "Nikmati sambungan Internet Fibre berkelajuan tinggi untuk penstriman, kerja dari rumah, pembelajaran dalam talian dan pelayaran web tanpa gangguan.",
+      home_btn_fibre: "Lihat Pelan Fibre",
+      home_btn_more: "Hubungi Kami",
 
-      mini_1_title: "Kelajuan 5G",
-      mini_1_sub: "Pelan sedia 5G dengan kelajuan pantas!",
-      mini_2_title: "24 Bulan",
-      mini_2_sub: "Bundle sehingga 24 bulan",
-      mini_3_title: "Pakej Jimat",
-      mini_3_sub: "Nikmati harga yang berpatutan.",
+      mini_1_title: "Kelajuan Tinggi",
+      mini_1_sub: "Internet Fibre stabil sehingga 1Gbps",
+      mini_2_title: "Sambungan Stabil",
+      mini_2_sub: "Sesuai untuk penstriman & permainan dalam talian",
+      mini_3_title: "Harga Berpatutan",
+      mini_3_sub: "Pelan Fibre dengan nilai terbaik",
 
-      promo_title: "Promosi & Tawaran",
+      // PROMO
+      promo_title: "Promosi & Tawaran Fibre",
       promos: [
         {
-          title: "Alami Internet 5G tanpa had & pantas — dari RM25/bulan",
-          desc: "Pelan bernilai untuk kegunaan harian, penstriman, dan media sosial.",
+          title: "Internet Fibre pantas & stabil untuk seisi rumah",
+          desc: "Nikmati pengalaman melayari Internet tanpa gangguan setiap hari.",
         },
         {
-          title: "Telefon percuma + Akses Viu Premium percuma selama 12 bulan",
-          desc: "Gabungkan pelan yang sesuai untuk nikmati penjimatan tambahan.",
+          title: "WiFi berkelajuan tinggi untuk kerja & hiburan",
+          desc: "Sesuai untuk penstriman, mesyuarat video dan permainan dalam talian.",
         },
         {
-          title: "Ansuran termudah untuk telefon 5G terkini dari RM1/bln",
-          desc: "Pilihan ansuran fleksibel dengan pelan yang berpatutan.",
+          title: "Pelbagai pilihan kelajuan Fibre",
+          desc: "Pilih pelan mengikut keperluan dan bajet anda.",
         },
         {
-          title: "Spark — eSIM, tanpa kedai, pelan anda, kawalan anda",
-          desc: "Aktifkan, urus dan kawal pelan dengan lebih mudah.",
+          title: "Pemasangan mudah & sokongan teknikal",
+          desc: "Kami sedia membantu dari pemasangan hingga sokongan selepas jualan.",
         },
       ],
 
-      postpaid_title: "Pilihan Pascabayar Popular",
-      postpaid_sub: "Perbandingan ringkas sebelum anda sambung ke kalkulator Fibre.",
-      plans: [
-        { name: "Pascabayar 80", price: "RM80/bulan", note: "Untuk kegunaan santai" },
-        { name: "Pascabayar 100", price: "RM100/bulan", note: "Paling berbaloi" },
-        { name: "Pascabayar 120", price: "RM120/bulan", note: "Untuk pengguna tegar" },
-      ],
-      plan_btn_bundle: "Gabung dengan Fibre",
-
-      // CONTACT
-      contact_title: "Hubungi Kami",
-      contact_sub:
-        "Hubungi pasukan kami untuk cadangan pelan, semakan liputan dan panduan pemasangan.",
-      contact_support_title: "Khidmat Pelanggan",
-      contact_support_desc: "Bil & teknikal: 1800-xx-xxxx",
-      contact_sales_title: "Jualan & WhatsApp",
-      contact_sales_desc1: "Jualan: +60 11-xxxx xxxx",
-      contact_sales_desc2: "WhatsApp: wa.me/60xxx",
-      contact_email_title: "Emel",
-      contact_email_desc: "sales@celcomdigi.com.my",
-
-      //FIBRE
-      fibre_title: "Tambah fiber ke pelan pascabayar anda untuk lebih banyak rebat",
-      fibre_sub: "Hitung pelan gabungan fiber dan postpaid anda di sini.",
-      fibre_pick_speed: "Pilih kelajuan Internet yang anda inginkan (Mbps)",
-      fibre_q_postpaid: "Adakah anda mempunyai pelan pascabayar RM60 ke atas dengan kami?",
-      yes: "Ya",
-      no: "Tidak",
-      fibre_summary_title: "Ringkasan harga",
-      fibre_label: "Fibre",
-      fibre_rebate: "Rebat bulanan",
-      fibre_monthly: "Kos bulanan",
-      fibre_24m: "(selama 24 bulan)",
-      fibre_offer_title: "Tawaran Semasa",
-      fibre_offer_sub: "Percuma Router WiFi 6 + Mesh Node",
+      // FIBRE PAGE
+      fibre_title: "Pilih Pelan Internet Fibre yang Sesuai untuk Anda",
+      fibre_sub: "Gunakan kalkulator di bawah untuk anggaran kos bulanan Fibre.",
+      fibre_pick_speed: "Pilih kelajuan Internet Fibre (Mbps)",
+      fibre_summary_title: "Ringkasan Pelan Fibre",
+      fibre_label: "Internet Fibre",
+      fibre_monthly: "Anggaran kos bulanan",
+      fibre_24m: "(kontrak 24 bulan)",
+      fibre_offer_title: "Tawaran Istimewa",
+      fibre_offer_sub: "Router WiFi disertakan",
       apply_now: "Mohon Sekarang",
+      apply_type_title: "Pilih Jenis Permohonan",
+      apply_business_q: "Adakah ini untuk Business Fibre?",
+
+      // SELECTOR
+      type_home_title: "Home Fibre",
+      type_home_desc: "Untuk kegunaan rumah seperti streaming, gaming, dan penggunaan harian.",
+      type_business_title: "Business Fibre",
+      type_business_desc: "Untuk kegunaan pejabat/SME dengan sambungan yang lebih stabil, sesuai untuk kerja & operasi.",
+      type_required_hint: "Sila pilih salah satu sebelum teruskan.",
+      type_required_alert: "Sila pilih Home Fibre atau Business Fibre dahulu.",
 
       // APPLY
-      apply_title: "Borang Permohonan Fibre",
-      apply_sub: "Sila isi maklumat anda.",
-      apply_summary_title: "Ringkasan Pilihan Anda",
-      apply_summary_speed: "Kelajuan",
-      apply_summary_postpaid: "Pascabayar RM60+",
-      apply_summary_base: "Harga Asal",
-      apply_summary_rebate: "Rebat",
+      apply_title: "Borang Permohonan Internet Fibre",
+      apply_sub: "Sila lengkapkan maklumat untuk proses pemasangan.",
+      apply_summary_title: "Ringkasan Pelan Dipilih",
+      apply_summary_speed: "Kelajuan Fibre",
+      apply_summary_base: "Harga Pelan",
       apply_summary_monthly: "Anggaran Bulanan",
       apply_card_personal: "Maklumat Peribadi",
       apply_card_address: "Alamat Pemasangan",
       apply_card_upload: "Muat Naik Dokumen",
       apply_name: "Nama Penuh",
-      apply_name_ph: "Contoh: Ahmad Bin Ali",
       apply_phone: "Nombor Telefon",
-      apply_phone_ph: "Contoh: 01X-XXXXXXX",
       apply_ic: "No. Kad Pengenalan (IC)",
-      apply_ic_ph: "Contoh: 001122-14-5678",
-      apply_email: "Email (Optional)",
-      apply_email_ph: "contoh@email.com",
-      optional: "optional",
-      apply_street1: "Street 1",
-      apply_street1_ph: "No rumah, jalan",
-      apply_street2: "Street 2",
-      apply_street2_ph: "Taman / Apartment / Blok",
+      apply_email: "Emel (Pilihan)",
+      apply_street1: "Alamat",
       apply_postcode: "Poskod",
-      apply_postcode_ph: "Contoh: 43000",
       apply_city: "Bandar",
-      apply_city_ph: "Contoh: Kajang",
       apply_region: "Negeri",
-      apply_region_ph: "Contoh: Selangor",
-      apply_upload_ic: "Salinan IC (Photo / PDF)",
-      apply_upload_bill: "Bil Utiliti (Photo / PDF)",
-      apply_upload_hint: "Format: JPG/PNG/PDF",
-      apply_bill_hint: "Contoh: TNB / SYABAS / Unifi",
-      apply_agree: "Saya setuju untuk dihubungi bagi tujuan pemasangan & semakan.",
-      apply_need_agree: "Sila tanda persetujuan sebelum hantar.",
+      apply_upload_ic: "Salinan IC",
+      apply_upload_bill: "Bil Utiliti",
+      apply_agree: "Saya bersetuju untuk dihubungi bagi tujuan pemasangan.",
       apply_submit: "Hantar Permohonan",
-      apply_sending: "Menghantar...",
       cancel: "Batal",
-      apply_success_title: "Permohonan Berjaya",
-      apply_success_sub: "Terima kasih! Khidmat pelanggan kami akan hubungi anda.",
-      apply_back_fibre: "Kembali ke Fibre",
-      apply_back_home: "Balik ke Home",
+      apply_success_title: "Permohonan Dihantar",
+      apply_success_sub: "Pasukan kami akan menghubungi anda untuk pemasangan.",
+      apply_back_fibre: "Kembali ke Pelan Fibre",
+      apply_back_home: "Kembali ke Utama",
+      apply_name_ph: "Contoh: Ali Bin Abu",
+      apply_phone_ph: "Contoh: 01X-XXXXXXX",
+      apply_ic_ph: "Contoh: 990101-01-1234",
+      apply_email_ph: "Contoh: nama@email.com",
+      apply_street1_ph: "Contoh: No 10, Jalan ABC",
+      apply_street2: "Alamat (Baris 2)",
+      apply_street2_ph: "Contoh: Taman / Apartment (jika ada)",
+      apply_postcode_ph: "Contoh: 43000",
+      apply_city_ph: "Contoh: Kajang",
+      apply_region_ph: "Contoh: Selangor",
+      apply_sending: "Menghantar...",
+      apply_upload_hint: "Format diterima: JPG, PNG atau PDF",
+      apply_bill_hint: "Contoh: Bil TNB / SYABAS / Internet",
+
+
+      free_router: "WiFi Router",
+      free_mesh: "Mesh WiFi",
+      free_installation: "Pemasangan",
+      offer_router: "WiFi Router disertakan",
+      offer_mesh: "Mesh WiFi disertakan",
+
+      // CONTACT
+      contact_title: "Hubungi Kami",
+      contact_sub: "Hubungi pasukan kami untuk pertanyaan pelan Internet Fibre, semakan liputan dan bantuan pemasangan.",
+      contact_support_title: "Khidmat Pelanggan",
+      contact_support_desc: " Sokongan & teknikal: 1800-xx-xxxx",
+      contact_sales_title: "Jualan & WhatsApp",
+      contact_sales_desc1: " Jualan: +60 11-xxxx xxxx",
+      contact_sales_desc2: " WhatsApp: wa.me/60xxx",
+      contact_email_title: "Emel",
+      contact_email_desc: " sales@celcomdigi.com.my",
     },
 
     en: {
       // NAV
       nav_home: "Home",
-      nav_fibre: "Fibre",
+      nav_fibre: "Fibre Plans",
       nav_contact: "Contact",
 
       // FOOTER
       footer_support_title: "Customer Support",
-      footer_support_desc: "Billing & technical: 1800-xx-xxxx",
+      footer_support_desc: "Support & technical: 1800-xx-xxxx",
       footer_sales_title: "Sales & WhatsApp",
       footer_sales_desc1: "Sales: +60 11-xxxx xxxx",
       footer_sales_desc2: "WhatsApp: wa.me/60xxx",
 
       // HOME
-      home_title: "Postpaid & Fibre Made Simple",
-      home_desc:
-        "Enjoy fast and stable Fibre internet for streaming, online gaming, and smooth browsing. Compare plans and continue to the Fibre calculator.",
-      home_btn_fibre: "Explore Fibre Plans",
-      home_btn_more: "Learn More",
+      home_title: "Fast & Reliable Fibre Internet for Your Home",
+      home_desc: "Enjoy high-speed Fibre Internet for streaming, remote work, online learning, and smooth browsing without interruptions.",
+      home_btn_fibre: "View Fibre Plans",
+      home_btn_more: "Contact Us",
 
-      mini_1_title: "5G Speed",
-      mini_1_sub: "5G-ready plans with fast speeds!",
-      mini_2_title: "24 Months",
-      mini_2_sub: "Bundle up to 24 months",
-      mini_3_title: "Save More",
-      mini_3_sub: "Enjoy an affordable price.",
+      mini_1_title: "High Speed",
+      mini_1_sub: "Stable Fibre Internet up to 1Gbps",
+      mini_2_title: "Reliable Connection",
+      mini_2_sub: "Ideal for streaming and online gaming",
+      mini_3_title: "Affordable Plans",
+      mini_3_sub: "Great value Fibre Internet packages",
 
-      promo_title: "Promotions & Deals",
+      // PROMO
+      promo_title: "Fibre Promotions & Offers",
       promos: [
         {
-          title: "Unlimited & fast 5G internet — from RM25/month",
-          desc: "Great-value plans for daily use, streaming, and social media.",
+          title: "Fast & stable Fibre Internet for your home",
+          desc: "Enjoy uninterrupted Internet experience every day.",
         },
         {
-          title: "Free phone + Free Viu Premium access for 12 months",
-          desc: "Bundle the right plan to enjoy extra savings.",
+          title: "High-speed WiFi for work & entertainment",
+          desc: "Perfect for streaming, video calls, and gaming.",
         },
         {
-          title: "Easiest instalment for latest 5G phones from RM1/month",
-          desc: "Flexible instalment options with affordable plans.",
+          title: "Multiple Fibre speed options",
+          desc: "Choose a plan that fits your needs and budget.",
         },
         {
-          title: "Spark — eSIM, no store, your plan, your control",
-          desc: "Activate, manage, and control your plan more easily.",
+          title: "Easy installation & technical support",
+          desc: "We assist you from installation to after-sales support.",
         },
       ],
-
-      postpaid_title: "Popular Postpaid Options",
-      postpaid_sub: "A quick comparison before you continue to the Fibre calculator.",
-      plans: [
-        { name: "Postpaid 80", price: "RM80/month", note: "For light usage" },
-        { name: "Postpaid 100", price: "RM100/month", note: "Best value" },
-        { name: "Postpaid 120", price: "RM120/month", note: "For heavy users" },
-      ],
-      plan_btn_bundle: "Bundle with Fibre",
 
       // FIBRE
-      fibre_title: "Add fibre to your postpaid plan for more rebates",
-      fibre_sub: "Calculate your fibre + postpaid bundle here.",
-      fibre_pick_speed: "Choose your preferred Internet speed (Mbps)",
-      fibre_q_postpaid: "Do you have a RM60 and above postpaid plan with us?",
-      yes: "Yes",
-      no: "No",
-      fibre_summary_title: "Price summary",
-      fibre_label: "Fibre",
-      fibre_rebate: "Monthly rebate",
-      fibre_monthly: "Monthly cost",
-      fibre_24m: "(for 24 months)",
-      fibre_offer_title: "Current Offer",
-      fibre_offer_sub: "Free WiFi 6 Router + Mesh Node",
+      fibre_title: "Choose the Right Fibre Internet Plan for You",
+      fibre_sub: "Use the calculator below to estimate your monthly Fibre cost.",
+      fibre_pick_speed: "Select Fibre Internet speed (Mbps)",
+      fibre_summary_title: "Fibre Plan Summary",
+      fibre_label: "Fibre Internet",
+      fibre_monthly: "Estimated monthly cost",
+      fibre_24m: "(24-month contract)",
+      fibre_offer_title: "Special Offer",
+      fibre_offer_sub: "WiFi Router included",
       apply_now: "Apply Now",
+      apply_type_title: "Choose Application Type",
+      apply_business_q: "Is this for Business Fibre?",
 
-      // CONTACT
-      contact_title: "Contact Us",
-      contact_sub:
-        "Reach our team for plan recommendations, coverage checks, and installation guidance.",
-      contact_support_title: "Customer Support",
-      contact_support_desc: "Billing & technical: 1800-xx-xxxx",
-      contact_sales_title: "Sales & WhatsApp",
-      contact_sales_desc1: "Sales: +60 11-xxxx xxxx",
-      contact_sales_desc2: "WhatsApp: wa.me/60xxx",
-      contact_email_title: "Email",
-      contact_email_desc: "sales@celcomdigi.com.my",
+      // SELECTOR
+      type_home_title: "Home Fibre",
+      type_home_desc: "For home usage such as streaming, gaming, and daily browsing.",
+      type_business_title: "Business Fibre",
+      type_business_desc: "For office/SME with much more stable connection for work & operations.",
+      type_required_hint: "Please select one before continuing.",
+      type_required_alert: "Please select Home Fibre or Business Fibre first.",
+
+      free_router: "WiFi Router",
+      free_mesh: "WiFi Mesh",
+      free_installation: "Installation",
+      offer_router: "Free WiFi Router included",
+      offer_mesh: "Free WiFi Mesh included",
 
       // APPLY
-      apply_title: "Fibre Application Form",
-      apply_sub: "Please fill in your details.",
-      apply_summary_title: "Your Selection Summary",
-      apply_summary_speed: "Speed",
-      apply_summary_postpaid: "RM60+ Postpaid",
-      apply_summary_base: "Base Price",
-      apply_summary_rebate: "Rebate",
+      apply_title: "Fibre Internet Application Form",
+      apply_sub: "Please complete your details for installation.",
+      apply_summary_title: "Selected Plan Summary",
+      apply_summary_speed: "Fibre Speed",
+      apply_summary_base: "Plan Price",
       apply_summary_monthly: "Estimated Monthly",
-      apply_card_personal: "Personal Details",
+      apply_card_personal: "Personal Information",
       apply_card_address: "Installation Address",
       apply_card_upload: "Upload Documents",
       apply_name: "Full Name",
-      apply_name_ph: "Example: Ahmad Bin Ali",
       apply_phone: "Phone Number",
-      apply_phone_ph: "Example: 01X-XXXXXXX",
-      apply_ic: "Identity Card No. (IC)",
-      apply_ic_ph: "Example: 001122-14-5678",
+      apply_ic: "Identity Card No.",
       apply_email: "Email (Optional)",
-      apply_email_ph: "example@email.com",
-      optional: "optional",
-      apply_street1: "Street 1",
-      apply_street1_ph: "House no., street",
-      apply_street2: "Street 2",
-      apply_street2_ph: "Area / Apartment / Block",
+      apply_street1: "Address",
       apply_postcode: "Postcode",
-      apply_postcode_ph: "Example: 43000",
       apply_city: "City",
-      apply_city_ph: "Example: Kajang",
       apply_region: "State",
-      apply_region_ph: "Example: Selangor",
-      apply_upload_ic: "IC Copy (Photo / PDF)",
-      apply_upload_bill: "Utility Bill (Photo / PDF)",
-      apply_upload_hint: "Format: JPG/PNG/PDF",
-      apply_bill_hint: "Example: TNB / SYABAS / Unifi",
-      apply_agree: "I agree to be contacted for installation and verification purposes.",
-      apply_need_agree: "Please tick the agreement before submitting.",
+      apply_upload_ic: "IC Copy",
+      apply_upload_bill: "Utility Bill",
+      apply_agree: "I agree to be contacted for installation purposes.",
       apply_submit: "Submit Application",
-      apply_sending: "Submitting...",
-      cancel: "Cancel",
+      cancel: "cancel",
       apply_success_title: "Application Submitted",
-      apply_success_sub: "Thank you! Our customer service will contact you soon.",
-      apply_back_fibre: "Back to Fibre",
+      apply_success_sub: "Our team will contact you to proceed with installation.",
+      apply_back_fibre: "Back to Fibre Plans",
       apply_back_home: "Back to Home",
+      apply_name_ph: "e.g. Ali Bin Abu",
+      apply_phone_ph: "e.g. 01X-XXXXXXX",
+      apply_ic_ph: "e.g. 990101-01-1234",
+      apply_email_ph: "e.g. name@email.com",
+      apply_street1_ph: "e.g. No 10, Jalan ABC",
+      apply_street2: "Address (Line 2)",
+      apply_street2_ph: "e.g. Taman / Apartment (optional)",
+      apply_postcode_ph: "e.g. 43000",
+      apply_city_ph: "e.g. Kajang",
+      apply_region_ph: "e.g. Selangor",
+      apply_sending: "Sending...",
+      apply_upload_hint: "Format diterima: JPG, PNG atau PDF",
+      apply_bill_hint: "Contoh: Bil TNB / SYABAS / Internet",
+
+
+      // CONTACT
+      contact_title: "Contact Us",
+      contact_sub: "Reach our team for Fibre Internet enquiries, coverage checks, and installation assistance.",
+      contact_support_title: "Customer Support",
+      contact_support_desc: " Support & technical: 1800-xx-xxxx",
+      contact_sales_title: "Sales & WhatsApp",
+      contact_sales_desc1: " Sales: +60 11-xxxx xxxx",
+      contact_sales_desc2: " WhatsApp: wa.me/60xxx",
+      contact_email_title: "Email",
+      contact_email_desc: " sales@celcomdigi.com.my",
     },
   };
 
@@ -361,7 +358,7 @@ function AppShell() {
           <p>{t("footer_sales_desc2")}</p>
         </div>
         <div><h4> </h4><p> </p></div>
-        <p className="footer-bottom">Celcomdigi Distributor © 2025. All Rights Reserved. (Demo)</p>
+        <p className="footer-bottom">Celcomdigi Distributor © 2026. All Rights Reserved.</p>
       </footer>
     </div>
   );
@@ -443,27 +440,6 @@ function HomePage({ t, tList }) {
           })}
         </div>
       </section>
-
-      {/* PLANS */}
-      <section className="home-block">
-        <div className="block-head">
-          <h2 className="block-title">{t("postpaid_title")}</h2>
-          <p className="block-sub">{t("postpaid_sub")}</p>
-        </div>
-
-        <div className="plan-grid">
-          {plans.map((p) => (
-            <div className="plan-box" key={p.name}>
-              <div className="plan-name">{p.name}</div>
-              <div className="plan-price">{p.price}</div>
-              <div className="plan-note">{p.note}</div>
-              <div className="plan-actions">
-                <NavLink className="primary-btn" to="/fibre">{t("plan_btn_bundle")}</NavLink>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
     </section>
   );
 }
@@ -473,31 +449,57 @@ function HomePage({ t, tList }) {
    FIBRE PAGE
    =============================== */
 function FibrePage({ t }) {
-  const speeds = [100, 300, 500, 1000, 2000];
+  const speeds = [100, 300, 500, 1000];
 
   const [speed, setSpeed] = useState(500);
-  const [hasPostpaid, setHasPostpaid] = useState(false);
+  const [appType, setAppType] = useState(null);
 
-  const basePriceMap = {
-    100: 129,
-    300: 149,
-    500: 159,
-    1000: 189,
-    2000: 249,
-  };
+  const homePriceMap = { 100: 99, 300: 139, 500: 159, 1000: 249 };
+  const businessPriceMap = { 100: 119, 300: 179, 500: 219, 1000: 299 };
 
-  const rebate = hasPostpaid ? 10 : 0;
-  const base = basePriceMap[speed] ?? 159;
-  const monthly = Math.max(base - rebate, 0);
+  const base = useMemo(() => {
+    const map = appType === "business" ? businessPriceMap : homePriceMap;
+    return map[speed] ?? 159;
+  }, [appType, speed]);
+
+  const monthly = base;
 
   const speedIndex = speeds.indexOf(speed);
   const speedLabel = speed >= 1000 ? `${speed / 1000}Gbps` : `${speed}Mbps`;
+
+  const isHome = appType === "home";
+  const isBusiness = appType === "business";
+  const homeHasMesh = isHome && (speed === 500 || speed === 1000);
+  const businessHasMesh = isBusiness;
+  const hasMesh = homeHasMesh || businessHasMesh;
+  const freeRows = (() => {
+
+  if (!appType) return [];
+  const rows = [
+    { label: t("free_router"), price: "RM0" },
+    { label: t("free_installation"), price: "RM0" },
+  ];
+
+  if (hasMesh) {
+    rows.splice(1, 0, { label: t("free_mesh"), price: "RM0" });
+  }
+
+  return rows;
+})();
+
+const offerList = (() => {
+  if (!appType) return [];
+
+  const list = [t("offer_router")];
+  if (hasMesh) list.push(t("offer_mesh"));
+  return list;
+})();
 
   return (
     <section className="fibre-wrap">
       <div className="fibre-container">
         <div className="fibre-layout">
-          {/* LEFT 70% */}
+          {/* LEFT */}
           <div className="fibre-main">
             <div className="fibre-hero-card">
               <div className="fibre-hero-left">
@@ -506,6 +508,62 @@ function FibrePage({ t }) {
               </div>
 
               <div className="fibre-hero-right">
+                {/* ===== Application Type ===== */}
+                <div className="calc-card" style={{ marginBottom: 14 }}>
+                  <div className="calc-title">{t("apply_type_title")}</div>
+
+                  <div className="type-grid">
+                    <button
+                      type="button"
+                      className={[
+                        "type-card",
+                        !appType ? "none-selected" : "",
+                        appType === "home" ? "selected" : "",
+                        appType && appType !== "home" ? "dim" : "",
+                      ].join(" ")}
+                      onClick={() => setAppType("home")}
+                    >
+                      <div className="type-inner">
+                        <img
+                          className="type-img"
+                          src={`${process.env.PUBLIC_URL}/icons/home-fibre.png`}
+                          alt="Home Fibre"
+                        />
+                        <div className="type-text">
+                          <div className="type-title">{t("type_home_title")}</div>
+                          <div className="type-desc">{t("type_home_desc")}</div>
+                        </div>
+                      </div>
+                    </button>
+
+                    <button
+                      type="button"
+                      className={[
+                        "type-card",
+                        !appType ? "none-selected" : "",
+                        appType === "business" ? "selected" : "",
+                        appType && appType !== "business" ? "dim" : "",
+                      ].join(" ")}
+                      onClick={() => setAppType("business")}
+                    >
+                      <div className="type-inner">
+                        <img
+                          className="type-img"
+                          src={`${process.env.PUBLIC_URL}/icons/business-fibre.png`}
+                          alt="Business Fibre"
+                        />
+                        <div className="type-text">
+                          <div className="type-title">{t("type_business_title")}</div>
+                          <div className="type-desc">{t("type_business_desc")}</div>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+
+                  {!appType && <div className="type-hint">{t("type_required_hint")}</div>}
+                </div>
+
+                {/* ===== Speed Selector ===== */}
                 <div className="calc-card">
                   <div className="calc-title">{t("fibre_pick_speed")}</div>
 
@@ -522,10 +580,7 @@ function FibrePage({ t }) {
 
                     <div className="slider-ticks">
                       {speeds.map((s) => (
-                        <span
-                          key={s}
-                          className={`tick ${s === speed ? "active" : ""}`}
-                        >
+                        <span key={s} className={`tick ${s === speed ? "active" : ""}`}>
                           {s}
                         </span>
                       ))}
@@ -533,79 +588,78 @@ function FibrePage({ t }) {
 
                     <div className="slider-selected">{speedLabel}</div>
                   </div>
-
-                  <div className="calc-divider" />
-
-                  <div className="toggle-row-cd">
-                    <div className="toggle-label">{t("fibre_q_postpaid")}</div>
-
-                    <div className="toggle-box">
-                      <span className={`toggle-pill ${!hasPostpaid ? "on" : ""}`}>
-                        {t("no")}
-                      </span>
-
-                      <button
-                        type="button"
-                        className={`cd-switch ${hasPostpaid ? "on" : ""}`}
-                        onClick={() => setHasPostpaid((v) => !v)}
-                        aria-label="toggle postpaid"
-                      >
-                        <span className="cd-knob" />
-                      </button>
-
-                      <span className={`toggle-pill ${hasPostpaid ? "on" : ""}`}>
-                        {t("yes")}
-                      </span>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* RIGHT 30% */}
+          {/* RIGHT */}
           <div className="fibre-side">
             <div className="summary-card">
               <div className="summary-head">{t("fibre_summary_title")}</div>
 
               <div className="summary-body">
-                <div className="sum-row">
-                  <span>
-                    {t("fibre_label")} {speedLabel}
-                  </span>
-                  <span className="sum-val">RM{base}</span>
-                </div>
-
-                <div className="sum-row">
-                  <span>{t("fibre_rebate")}</span>
-                  <span className="sum-val">-RM{rebate}</span>
-                </div>
-
-                <div className="sum-line" />
-
-                <div className="sum-total">
-                  <div className="sum-total-label">
-                    {t("fibre_monthly")} <span>{t("fibre_24m")}</span>
-                  </div>
-                  <div className="sum-total-price">RM{monthly}</div>
-                </div>
+              {/* Main plan row */}
+              <div className="sum-row">
+                <span className="sum-label">
+                  {t("fibre_label")} {speedLabel}
+                </span>
+                <span className="sum-val">RM{base}</span>
               </div>
 
-              <div className="summary-offer">
+              {/* NEW: free items rows */}
+              {freeRows.length > 0 && (
+                <div className="sum-extras">
+                  {freeRows.map((r) => (
+                    <div className="sum-row sum-row--small" key={r.label}>
+                      <span className="sum-label">{r.label}</span>
+                      <span className="sum-val sum-val--free">{r.price}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <div className="sum-line" />
+
+              {/* Monthly total */}
+              <div className="sum-total">
+                <div className="sum-total-label">{t("fibre_monthly")} <span>{t("fibre_24m")}</span></div>
+                <div className="sum-total-price">RM{monthly}</div>
+              </div>
+            </div>
+
+
+             <div className="summary-offer">
                 <div className="offer-title">{t("fibre_offer_title")}</div>
-                <div className="offer-sub">{t("fibre_offer_sub")}</div>
-              </div>
+
+                  {/* Show based on selection */}
+                  {offerList.length > 0 ? (
+                    <ul className="offer-list">
+                      {offerList.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="offer-sub">{t("type_required_hint")}</div>
+                  )}
+               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Apply button (pass state to ApplyPage) */}
+      {/* Apply button */}
       <div className="apply-bar">
         <NavLink
-          to="/apply"
-          className="apply-bottom-btn"
-          state={{ speed, hasPostpaid, monthly, base, rebate }}
+          to={appType ? "/apply" : "#"}
+          className={`apply-bottom-btn ${!appType ? "disabled" : ""}`}
+          onClick={(e) => {
+            if (!appType) {
+              e.preventDefault();
+              alert(t("type_required_alert"));
+            }
+          }}
+          state={{ speed, appType, monthly, base }}
         >
           {t("apply_now")}
         </NavLink>
@@ -626,19 +680,39 @@ function ContactPage({ t }) {
 
       <div className="contact-grid">
         <div className="contact-item">
-          <h3>{t("contact_support_title")}</h3>
-          <p>{t("contact_support_desc")}</p>
-        </div>
-
-        <div className="contact-item">
           <h3>{t("contact_sales_title")}</h3>
-          <p>{t("contact_sales_desc1")}</p>
-          <p>{t("contact_sales_desc2")}</p>
+          <a href="tel:+6011XXXXXXXX" className="contact-link">
+            <span className="contact-icon">
+              📞
+            </span>
+            {t("contact_sales_desc1")}
+          </a>
+
+          <a
+            href="https://wa.me/6011XXXXXXXX"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-link whatsapp"
+          >
+            <span className="contact-icon">
+              💬
+            </span>
+            {t("contact_sales_desc2")}
+          </a>
         </div>
 
         <div className="contact-item">
           <h3>{t("contact_email_title")}</h3>
-          <p>{t("contact_email_desc")}</p>
+
+          <a
+            href="mailto:sales@celcomdigi.com.my"
+            className="contact-link email"
+          >
+            <span className="contact-icon">
+              ✉️
+            </span>
+            {t("contact_email_desc")}
+          </a>
         </div>
       </div>
     </section>
@@ -655,12 +729,29 @@ function ApplyPage({ t }) {
   const routeState = location.state || {};
 
   const speed = routeState.speed ?? 500;
-  const hasPostpaid = routeState.hasPostpaid ?? false;
+  const appType = routeState.appType ?? null; // "home" | "business"
   const monthly = routeState.monthly ?? 0;
   const base = routeState.base ?? 0;
-  const rebate = routeState.rebate ?? 0;
 
   const speedLabel = speed >= 1000 ? `${speed / 1000}Gbps` : `${speed}Mbps`;
+  const isHome = appType === "home";
+  const isBusiness = appType === "business";
+
+  const homeHasMesh = isHome && (speed === 500 || speed === 1000);
+  const businessHasMesh = isBusiness;
+  const hasMesh = homeHasMesh || businessHasMesh;
+
+  const freeItems = (() => {
+    if (!appType) return [];
+
+    const items = [
+      { label: t("free_router"), value: "RM0" },
+      ...(hasMesh ? [{ label: t("free_mesh"), value: "RM0" }] : []),
+      { label: t("free_installation"), value: "RM0" },
+    ];
+
+    return items;
+  })();
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -680,6 +771,12 @@ function ApplyPage({ t }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  const fibreTypeLabel =
+    routeState.appType === "business"
+      ? t("type_business_title")
+      : t("type_home_title");
+
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -697,74 +794,98 @@ function ApplyPage({ t }) {
   };
 
   if (submitted) {
-    return (
-      <section className="apply-page">
-        <h1>{t("apply_success_title")}</h1>
-        <p className="apply-sub">{t("apply_success_sub")}</p>
+      return (
+        <section className="apply-page">
+          <h1>{t("apply_success_title")}</h1>
+          <p className="apply-sub">{t("apply_success_sub")}</p>
+          <div className="sumcard">
+            <div className="sumcard-head">{t("fibre_summary_title")}</div>
 
-        <div className="apply-success-card">
-          <div className="success-row">
-            <span>{t("apply_summary_speed")}</span>
-            <strong>{speedLabel}</strong>
-          </div>
-          <div className="success-row">
-            <span>{t("apply_summary_postpaid")}</span>
-            <strong>{hasPostpaid ? t("yes") : t("no")}</strong>
-          </div>
-          <div className="success-row">
-            <span>{t("apply_summary_monthly")}</span>
-            <strong>RM{monthly}</strong>
-          </div>
-        </div>
+            <div className="sumcard-body">
+              <div className="sumcard-type">
+                {fibreTypeLabel?.toUpperCase()}
+              </div>
 
-        <div className="apply-actions">
-          <NavLink className="primary-btn" to="/fibre">
-            {t("apply_back_fibre")}
-          </NavLink>
-          <NavLink className="ghost-btn" to="/">
-            {t("apply_back_home")}
-          </NavLink>
-        </div>
-      </section>
-    );
-  }
+              <div className="sumcard-row">
+                <span className="sumcard-label">
+                  {t("fibre_label")} {speedLabel}
+                </span>
+                <span className="sumcard-val">RM{base}</span>
+              </div>
+
+              {freeItems.map((it) => (
+                <div className="sumcard-row" key={it.label}>
+                  <span className="sumcard-label">{it.label}</span>
+                  <span className="sumcard-val">{it.value}</span>
+                </div>
+              ))}
+
+              <div className="sumcard-line" />
+              <div className="sumcard-total">
+                <div className="sumcard-total-text">
+                  <div className="sumcard-total-title">{t("fibre_monthly")}</div>
+                  <div className="sumcard-total-sub">{t("fibre_24m")}</div>
+                </div>
+
+                <div className="sumcard-total-price">RM{monthly}</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="apply-actions">
+            <NavLink className="primary-btn" to="/fibre">
+              {t("apply_back_fibre")}
+            </NavLink>
+            <NavLink className="ghost-btn" to="/">
+              {t("apply_back_home")}
+            </NavLink>
+          </div>
+        </section>
+      );
+    }
+
 
   return (
     <section className="apply-page">
       <h1>{t("apply_title")}</h1>
       <p className="apply-sub">{t("apply_sub")}</p>
 
-      {/* Summary */}
-      <div className="apply-summary">
-        <div className="apply-summary-title">{t("apply_summary_title")}</div>
+        <div className="sumcard">
+          <div className="sumcard-head">{t("fibre_summary_title")}</div>
 
-        <div className="apply-summary-grid">
-          <div className="apply-pill">
-            <span>{t("apply_summary_speed")}</span>
-            <strong>{speedLabel}</strong>
-          </div>
+          <div className="sumcard-body">
+            <div className="sumcard-type">
+              {fibreTypeLabel}
+            </div>
 
-          <div className="apply-pill">
-            <span>{t("apply_summary_postpaid")}</span>
-            <strong>{hasPostpaid ? t("yes") : t("no")}</strong>
-          </div>
+            {/* Plan row */}
+            <div className="sumcard-row">
+              <span className="sumcard-label">{t("fibre_label")} {speedLabel}</span>
+              <span className="sumcard-val">RM{base}</span>
+            </div>
 
-          <div className="apply-pill">
-            <span>{t("apply_summary_base")}</span>
-            <strong>RM{base}</strong>
-          </div>
+            {/* Free items rows */}
+            {freeItems.map((it) => (
+              <div className="sumcard-row" key={it.label}>
+                <span className="sumcard-label">{it.label}</span>
+                <span className="sumcard-val">RM0</span>
+              </div>
+            ))}
 
-          <div className="apply-pill">
-            <span>{t("apply_summary_rebate")}</span>
-            <strong>-RM{rebate}</strong>
-          </div>
+            <div className="sumcard-line" />
 
-          <div className="apply-pill full apply-total">
-            <span>{t("apply_summary_monthly")} {t("fibre_24m")}</span>
-            <strong>RM{monthly}</strong>
+            {/* Total row */}
+            <div className="sumcard-total">
+              <div className="sumcard-total-text">
+                <div className="sumcard-total-title">{t("fibre_monthly")}</div>
+                <div className="sumcard-total-sub">{t("fibre_24m")}</div>
+              </div>
+
+              <div className="sumcard-total-price">RM{monthly}</div>
+            </div>
           </div>
         </div>
-      </div>
+
 
       <form className="apply-form" onSubmit={onSubmit}>
         {/* CARD 1: Personal */}
@@ -925,4 +1046,5 @@ function ApplyPage({ t }) {
     </section>
   );
 }
+
 
