@@ -4,10 +4,6 @@ import { BrowserRouter, Routes, Route, NavLink, useLocation } from "react-router
 import "./App.css";
 
 import logo from "./Logo_CelcomDigi.svg";
-import bannerHome from "./assets/banners/banner-1.webp";
-import bannerFibre from "./assets/banners/banner-3.webp";
-import bannerContact from "./assets/banners/banner-2.webp";
-
 import wifiIcon from "./assets/icons/1.svg";
 import calendarIcon from "./assets/icons/4.svg";
 import moneyIcon from "./assets/icons/2.svg";
@@ -29,6 +25,11 @@ export default function App() {
 function AppShell() {
   const location = useLocation();
   const path = location.pathname;
+
+  const bannerHome = `${process.env.PUBLIC_URL}/banners/banner-home.webp`;
+  const bannerFibre = `${process.env.PUBLIC_URL}/banners/banner-fibre.webp`;
+  const bannerContact = `${process.env.PUBLIC_URL}/banners/banner-contact.webp`;
+
 
   const [lang, setLang] = useState(() => localStorage.getItem("lang") || "my");
   useEffect(() => localStorage.setItem("lang", lang), [lang]);
@@ -59,7 +60,7 @@ function AppShell() {
       mini_2_title: "24 Bulan",
       mini_2_sub: "Bundle sehingga 24 bulan",
       mini_3_title: "Pakej Jimat",
-      mini_3_sub: "Nikmati rebat sebanyak RM120 setahun!",
+      mini_3_sub: "Nikmati harga yang berpatutan.",
 
       promo_title: "Promosi & Tawaran",
       promos: [
@@ -89,21 +90,6 @@ function AppShell() {
         { name: "Pascabayar 120", price: "RM120/bulan", note: "Untuk pengguna tegar" },
       ],
       plan_btn_bundle: "Gabung dengan Fibre",
-
-      // FIBRE
-      fibre_title: "Tambah fiber ke pelan pascabayar anda untuk lebih banyak rebat",
-      fibre_sub: "Hitung pelan gabungan fiber dan postpaid anda di sini.",
-      fibre_calc_title: "Pilih kelajuan Internet yang anda inginkan (Mbps)",
-      fibre_toggle_q: "Adakah anda mempunyai pelan pascabayar RM60 ke atas dengan kami?",
-      no: "Tidak",
-      yes: "Ya",
-      summary_title: "Ringkasan harga",
-      summary_rebate: "Rebat bulanan",
-      summary_monthly: "Kos bulanan",
-      summary_24: "(selama 24 bulan)",
-      offer_title: "Tawaran Semasa",
-      offer_sub: "Percuma Router WiFi 6 + Mesh Node",
-      apply_now: "Mohon Sekarang",
 
       // CONTACT
       contact_title: "Hubungi Kami",
@@ -204,7 +190,7 @@ function AppShell() {
       mini_2_title: "24 Months",
       mini_2_sub: "Bundle up to 24 months",
       mini_3_title: "Save More",
-      mini_3_sub: "Enjoy rebates worth RM120 per year!",
+      mini_3_sub: "Enjoy an affordable price.",
 
       promo_title: "Promotions & Deals",
       promos: [
