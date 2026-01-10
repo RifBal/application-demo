@@ -1,11 +1,8 @@
 {
   "files": {
     "main.css": "/application-demo/static/css/main.b9068488.css",
-    "main.js": "/application-demo/static/js/main.eb402692.js",
+    "main.js": "/application-demo/static/js/main.9e0d2869.js",
     "static/js/453.1e13ea0d.chunk.js": "/application-demo/static/js/453.1e13ea0d.chunk.js",
-    "static/media/banner-3.webp": "/application-demo/static/media/banner-3.efe6b89640909aecc15a.webp",
-    "static/media/banner-2.webp": "/application-demo/static/media/banner-2.0146d006e6ff9f9d8374.webp",
-    "static/media/banner-1.webp": "/application-demo/static/media/banner-1.dec91dea4b486dee61e6.webp",
     "static/media/promo1.webp": "/application-demo/static/media/promo1.0270b0fa40624f38e827.webp",
     "static/media/2.svg": "/application-demo/static/media/2.f8f571d68d70a84040489a3646c9fef4.svg",
     "static/media/promo2.webp": "/application-demo/static/media/promo2.2e3a3930b42eca5482b7.webp",
@@ -16,11 +13,11 @@
     "static/media/1.svg": "/application-demo/static/media/1.5bfb7a421dc2cac477446ddbc8841b97.svg",
     "index.html": "/application-demo/index.html",
     "main.b9068488.css.map": "/application-demo/static/css/main.b9068488.css.map",
-    "main.eb402692.js.map": "/application-demo/static/js/main.eb402692.js.map",
+    "main.9e0d2869.js.map": "/application-demo/static/js/main.9e0d2869.js.map",
     "453.1e13ea0d.chunk.js.map": "/application-demo/static/js/453.1e13ea0d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b9068488.css",
-    "static/js/main.eb402692.js"
+    "static/js/main.9e0d2869.js"
   ]
 }
