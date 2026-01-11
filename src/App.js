@@ -369,7 +369,6 @@ function AppShell() {
    HOME PAGE
    =============================== */
 function HomePage({ t, tList }) {
-  const plans = useMemo(() => tList("plans"), [tList]);
   const promos = useMemo(() => tList("promos"), [tList]);
 
   return (
@@ -421,8 +420,6 @@ function HomePage({ t, tList }) {
 
       {/* PROMO */}
       <section className="home-block">
-        <h2 className="block-title">{t("promo_title")}</h2>
-
         <div className="promo-list">
           {promos.map((item, idx) => {
             const imgs = [promo1, promo2, promo3, promo4];
@@ -454,10 +451,9 @@ function FibrePage({ t }) {
   const [speed, setSpeed] = useState(500);
   const [appType, setAppType] = useState(null);
 
-  const homePriceMap = { 100: 99, 300: 139, 500: 159, 1000: 249 };
-  const businessPriceMap = { 100: 119, 300: 179, 500: 219, 1000: 299 };
-
   const base = useMemo(() => {
+    const homePriceMap = { 100: 99, 300: 139, 500: 159, 1000: 249 };
+    const businessPriceMap = { 100: 119, 300: 179, 500: 219, 1000: 299 };
     const map = appType === "business" ? businessPriceMap : homePriceMap;
     return map[speed] ?? 159;
   }, [appType, speed]);
@@ -526,7 +522,7 @@ const offerList = (() => {
                       <div className="type-inner">
                         <img
                           className="type-img"
-                          src={`${process.env.PUBLIC_URL}/icons/home-fibre.png`}
+                          src={`${process.env.PUBLIC_URL}/icons/home-fibre.webp`}
                           alt="Home Fibre"
                         />
                         <div className="type-text">
@@ -549,7 +545,7 @@ const offerList = (() => {
                       <div className="type-inner">
                         <img
                           className="type-img"
-                          src={`${process.env.PUBLIC_URL}/icons/business-fibre.png`}
+                          src={`${process.env.PUBLIC_URL}/icons/business-fibre.webp`}
                           alt="Business Fibre"
                         />
                         <div className="type-text">
