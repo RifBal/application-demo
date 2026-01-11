@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/application-demo/static/css/main.c1cba4f7.css",
-    "main.js": "/application-demo/static/js/main.368b6861.js",
+    "main.css": "/application-demo/static/css/main.5e0609e9.css",
+    "main.js": "/application-demo/static/js/main.86dfa6fc.js",
     "static/js/453.1e13ea0d.chunk.js": "/application-demo/static/js/453.1e13ea0d.chunk.js",
     "static/media/promo1.webp": "/application-demo/static/media/promo1.b8a6c5a88c0e29e54592.webp",
     "static/media/promo3.webp": "/application-demo/static/media/promo3.e382318054415c88c6be.webp",
@@ -12,12 +12,12 @@
     "static/media/Logo_CelcomDigi.svg": "/application-demo/static/media/Logo_CelcomDigi.a057415f0ba2ca01ccfe935333a0bcb1.svg",
     "static/media/1.svg": "/application-demo/static/media/1.5bfb7a421dc2cac477446ddbc8841b97.svg",
     "index.html": "/application-demo/index.html",
-    "main.c1cba4f7.css.map": "/application-demo/static/css/main.c1cba4f7.css.map",
-    "main.368b6861.js.map": "/application-demo/static/js/main.368b6861.js.map",
+    "main.5e0609e9.css.map": "/application-demo/static/css/main.5e0609e9.css.map",
+    "main.86dfa6fc.js.map": "/application-demo/static/js/main.86dfa6fc.js.map",
     "453.1e13ea0d.chunk.js.map": "/application-demo/static/js/453.1e13ea0d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c1cba4f7.css",
-    "static/js/main.368b6861.js"
+    "static/css/main.5e0609e9.css",
+    "static/js/main.86dfa6fc.js"
   ]
 }
