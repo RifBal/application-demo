@@ -60,6 +60,18 @@ function AppShell() {
       mini_3_title: "Harga Berpatutan",
       mini_3_sub: "Pelan Fibre dengan nilai terbaik",
 
+      //FIBRE PLAN LIST
+      price_title: "Senarai Pelan Fibre",
+      price_100: "100 Mbps",
+      price_300: "300 Mbps",
+      price_500: "500 Mbps",
+      price_1g: "1 Gbps",
+      feat_router: "Router WiFi 6",
+      feat_unlimited: "Kelajuan Internet Tanpa Had",
+      feat_install: "Pemasangan Standard",
+      feat_mesh: "WiFi Mesh",
+      feat_mesh_node: "Nod Mesh",
+
       // PROMO
       promo_title: "Promosi & Tawaran Fibre",
       promos: [
@@ -188,6 +200,18 @@ function AppShell() {
       mini_2_sub: "Ideal for streaming and online gaming",
       mini_3_title: "Affordable Plans",
       mini_3_sub: "Great value Fibre Internet packages",
+
+      // FIBRE PLAN LIST
+      price_title: "Fibre Plan List",
+      price_100: "100 Mbps",
+      price_300: "300 Mbps",
+      price_500: "500 Mbps",
+      price_1g: "1 Gbps",
+      feat_router: "WiFi 6 Router",
+      feat_unlimited: "Unlimited High-Speed Internet",
+      feat_install: "Standard Installation",
+      feat_mesh: "WiFi Mesh",
+      feat_mesh_node: "Mesh Node",
 
       // PROMO
       promo_title: "Fibre Promotions & Offers",
@@ -371,6 +395,19 @@ function AppShell() {
 function HomePage({ t, tList }) {
   const promos = useMemo(() => tList("promos"), [tList]);
 
+  const priceCards = [
+    { speed: "100 Mbps" },
+    { speed: "300 Mbps" },
+    { speed: "500 Mbps" },
+    { speed: "1 Gbps" },
+  ];
+
+  const features = [
+    "WiFi 6 router",
+    "Unlimited hyper speed",
+    "Standard installation",
+  ];
+
   return (
     <section className="home-sections">
       <section className="home-hero">
@@ -417,6 +454,58 @@ function HomePage({ t, tList }) {
           </div>
         </div>
       </section>
+
+      <section className="home-block price-block">
+          <h2 className="block-title">{t("price_title")}</h2>
+
+          <div className="price-row">
+            {[
+              {
+                speedKey: "price_100",
+                img: `${process.env.PUBLIC_URL}/icons/price-100.webp`,
+                features: ["feat_router", "feat_unlimited", "feat_install"],
+              },
+              {
+                speedKey: "price_300",
+                img: `${process.env.PUBLIC_URL}/icons/price-300.webp`,
+                features: ["feat_router", "feat_unlimited", "feat_install"],
+              },
+              {
+                speedKey: "price_500",
+                img: `${process.env.PUBLIC_URL}/icons/price-500.webp`,
+                features: ["feat_router", "feat_mesh", "feat_mesh_node", "feat_install"],
+              },
+              {
+                speedKey: "price_1g",
+                img: `${process.env.PUBLIC_URL}/icons/price-1g.webp`,
+                features: ["feat_router", "feat_mesh", "feat_mesh_node", "feat_install"],
+              },
+            ].map((card) => (
+              <article className="price-card" key={card.speedKey}>
+                {/* Floating image */}
+                <img
+                  className="price-float-img"
+                  src={card.img}
+                  alt=""
+                  aria-hidden="true"
+                />
+
+                {/* Centered speed title */}
+                <div className="price-speed">{t(card.speedKey)}</div>
+
+                {/* Features */}
+                <ul className="price-features">
+                  {card.features.map((f) => (
+                    <li className="price-feature" key={f}>
+                      <span className="tick-circle" aria-hidden="true">✓</span>
+                      <span className="feature-text">{t(f)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </section>
 
       {/* PROMO */}
       <section className="home-block">
