@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/application-demo/static/css/main.c1cba4f7.css",
-    "main.js": "/application-demo/static/js/main.aa7daf15.js",
+    "main.js": "/application-demo/static/js/main.368b6861.js",
     "static/js/453.1e13ea0d.chunk.js": "/application-demo/static/js/453.1e13ea0d.chunk.js",
-    "static/media/promo1.webp": "/application-demo/static/media/promo1.0270b0fa40624f38e827.webp",
+    "static/media/promo1.webp": "/application-demo/static/media/promo1.b8a6c5a88c0e29e54592.webp",
+    "static/media/promo3.webp": "/application-demo/static/media/promo3.e382318054415c88c6be.webp",
+    "static/media/promo2.webp": "/application-demo/static/media/promo2.f9f8b61be7fca1730bc4.webp",
+    "static/media/promo4.webp": "/application-demo/static/media/promo4.4dd54dbe296e7c05f162.webp",
     "static/media/2.svg": "/application-demo/static/media/2.f8f571d68d70a84040489a3646c9fef4.svg",
-    "static/media/promo2.webp": "/application-demo/static/media/promo2.2e3a3930b42eca5482b7.webp",
-    "static/media/promo4.webp": "/application-demo/static/media/promo4.77cc23092a084d526f82.webp",
     "static/media/4.svg": "/application-demo/static/media/4.466bb2a0833d6abdb27db3f887a0c24b.svg",
     "static/media/Logo_CelcomDigi.svg": "/application-demo/static/media/Logo_CelcomDigi.a057415f0ba2ca01ccfe935333a0bcb1.svg",
-    "static/media/promo3.webp": "/application-demo/static/media/promo3.35e9eebf6a5d75a36ff1.webp",
     "static/media/1.svg": "/application-demo/static/media/1.5bfb7a421dc2cac477446ddbc8841b97.svg",
     "index.html": "/application-demo/index.html",
     "main.c1cba4f7.css.map": "/application-demo/static/css/main.c1cba4f7.css.map",
-    "main.aa7daf15.js.map": "/application-demo/static/js/main.aa7daf15.js.map",
+    "main.368b6861.js.map": "/application-demo/static/js/main.368b6861.js.map",
     "453.1e13ea0d.chunk.js.map": "/application-demo/static/js/453.1e13ea0d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c1cba4f7.css",
-    "static/js/main.aa7daf15.js"
+    "static/js/main.368b6861.js"
   ]
 }
