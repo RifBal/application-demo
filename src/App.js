@@ -15,7 +15,7 @@ import promo4 from "./assets/promo/promo4.webp";
 
 export default function App() {
   return (
-    <BrowserRouter basename="/application-demo">
+    <BrowserRouter>
       <AppShell />
     </BrowserRouter>
   );
